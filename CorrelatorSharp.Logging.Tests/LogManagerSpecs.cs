@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Machine.Specifications;
@@ -18,8 +19,14 @@ namespace CorrelatorSharp.Logging.Tests
         };
 
         Because of = () => {
-            Logger = TestClass.CreateCurrentClassLogger();            
+            Logger = CreateLogger();
         };
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static ILogger CreateLogger()
+        {
+            return TestClass.CreateCurrentClassLogger();
+        }
 
 
         It should_name_the_logger_with_the_class_name = () => {
@@ -31,6 +38,7 @@ namespace CorrelatorSharp.Logging.Tests
 
     internal class TestClass
     {
+        [MethodImpl(MethodImplOptions.NoInlining)]
         public ILogger CreateCurrentClassLogger()
         {
             return LogManager.GetCurrentClassLogger();
