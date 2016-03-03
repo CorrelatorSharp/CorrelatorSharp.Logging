@@ -7,14 +7,9 @@ namespace CorrelatorSharp.Logging.Dummy
     {
         public readonly static DummyLogManagerAdaptor Instance = new DummyLogManagerAdaptor();
 
-        public ILogger GetCurrentClassLogger()
-        {
-            return DummyLoggerAdaptor.Instance;
-        }
-
         public ILogger GetLogger(string name)
         {
-            return DummyLoggerAdaptor.Instance;
+            return new DummyLoggerAdaptor(name);
         }
     }
 }
