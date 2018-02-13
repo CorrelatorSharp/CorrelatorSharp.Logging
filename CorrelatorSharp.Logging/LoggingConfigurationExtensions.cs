@@ -1,13 +1,10 @@
-﻿using System;
-using System.Linq;
-
-namespace CorrelatorSharp.Logging
+﻿namespace CorrelatorSharp.Logging
 {
     public static class LoggingConfigurationExtensions
     {
-        public static LoggingConfiguration WithLogManager(this LoggingConfiguration config, ILogManagerAdaptor adaptor)
+        public static LoggingConfiguration WithLogManager(this LoggingConfiguration config, ILogManagerAdaptor adapter)
         {
-            LoggingConfiguration.LogManager = adaptor;
+            LoggingConfiguration.LogManager = adapter;
             return config;
         }
     }
