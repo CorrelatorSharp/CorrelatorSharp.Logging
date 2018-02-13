@@ -2,10 +2,8 @@
 
 namespace CorrelatorSharp.Logging
 {
-
     public interface ILogger
     {
-
         string Name { get; }
 
         void LogError(string format, params object[] values);
@@ -27,6 +25,5 @@ namespace CorrelatorSharp.Logging
         bool IsErrorEnabled { get; }
         bool IsFatalEnabled { get; }
         bool IsDebugEnabled { get; }
-      
     }
 }
